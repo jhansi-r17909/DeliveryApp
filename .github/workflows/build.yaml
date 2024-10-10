@@ -1,0 +1,29 @@
+name: React app deployment
+
+on:
+  push:
+    branches: ["development"]
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: self-hosted
+
+    
+
+    steps:
+      - uses: actions/checkout@v3
+     
+      - run: npm i
+      - run: npm run build
+      - run: |
+          # cd /home/ubuntu
+          # cp -r /home/ubuntu/actions-runner/work/app-demo/app-demo/build/* /home/ubuntu/app-demo/
+          # cd /home/ubuntu/app-demo/
+          # git init
+          # git checkout -b master
+          # git add .
+          # git commit -m "Build:`date +'%Y-%m-%d %H:%M:%S'`"
+          # git remote add origin git@github.com:praveen-kumar-ceq/app-demo.git
+          # git push origin master
+          echo All task done
